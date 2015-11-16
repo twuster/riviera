@@ -1,22 +1,21 @@
 package cs294.riviera.com.riviera;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBar;
+import android.content.Intent;
+import android.nfc.NfcAdapter;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -31,6 +30,8 @@ public class MainActivity extends AppCompatActivity
      */
     private CharSequence mTitle;
 
+    private NfcAdapter mNfcAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,23 @@ public class MainActivity extends AppCompatActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        // NFC Code
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (!mNfcAdapter.isEnabled()) {
+            Toast.makeText(this, "NFC not enabled. Please enable NFC.", Toast.LENGTH_SHORT).show();
+        }
+
+        handleIntent(getIntent());
+
+    }
+
+    private void handleIntent(Intent intent) {
+        // Handle NFC Uri
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+            Log.d("DEBUG", intent.getDataString());
+            String url =  intent.getDataString();
+        }
     }
 
     @Override
