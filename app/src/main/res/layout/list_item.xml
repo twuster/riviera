@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="2">
+
+    <View
+        android:id="@+id/centerShim"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/list_left_item"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginLeft="@dimen/list_side_margin"
+        android:layout_marginRight="@dimen/list_side_margin"
+        android:layout_marginTop="@dimen/list_top_margin"
+        android:layout_marginBottom="@dimen/list_bottom_margin"
+        android:layout_toLeftOf="@id/centerShim"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-light"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/list_right_item"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@color/blue"
+        android:layout_marginLeft="@dimen/list_side_margin"
+        android:layout_marginRight="@dimen/list_side_margin"
+        android:layout_marginTop="@dimen/list_top_margin"
+        android:layout_marginBottom="@dimen/list_bottom_margin"
+        android:layout_toRightOf="@id/centerShim"
+        android:fontFamily="sans-serif-light"
+        android:textSize="30dp" />
+
+</RelativeLayout>
