@@ -1,14 +1,28 @@
 <resources>
     <string name="app_name">Riviera</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="company">Company</string>
+    <string name="new_account">Create an Account</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="title_activity_events">EventsActivity</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_different_passwords">Both passwords must be the same</string>
 
+
+    <string name="title_activity_example_tab">ExampleTab</string>
+    <string name="title_activity_tab1">Tab1</string>
+    <string name="title_activity_tab2">Tab2</string>
+    <string name="title_activity_sign_up">signUpActivity</string>
+    <string name="title_activity_names_list">NamesListActivity</string>
+    <string name="title_activity_candidate_profile">CandidateProfileActivity</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_example">Example action</string>
-
     <string name="action_settings">Settings</string>
 </resources>

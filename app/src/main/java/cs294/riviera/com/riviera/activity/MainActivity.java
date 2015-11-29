@@ -1,4 +1,4 @@
-package cs294.riviera.com.riviera;
+package cs294.riviera.com.riviera.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
+
+import cs294.riviera.com.riviera.NavigationDrawerFragment;
+import cs294.riviera.com.riviera.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -31,20 +36,37 @@ public class MainActivity extends AppCompatActivity
     private CharSequence mTitle;
 
     private NfcAdapter mNfcAdapter;
+    private Button loginButton;
+    private Button signUpButton;
+
+    private EditText loginEmail;
+    private EditText loginPassword;
+
+    private String emailText;
+    private String passwordText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
+        loginButton = (Button) findViewById(R.id.login_button);
+        signUpButton = (Button) findViewById(R.id.sign_up_button);
+
+        loginEmail = (EditText) findViewById(R.id.login_email);
+        loginPassword = (EditText) findViewById(R.id.login_password);
+
+        /* mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        // Set up the drawer.
+        Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+                        (DrawerLayout) findViewById(R.id.drawer_layout)); */
+
 
         // NFC Code
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -64,13 +86,23 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void handleLoginButton(View view) {
+        Intent intent = new Intent(this, EventsActivity.class);
+        startActivity(intent);
+    }
+
+    public void handleSignUpButton(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
+        /* update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+                .commit(); */
     }
 
     public void onSectionAttached(int number) {
@@ -145,8 +177,7 @@ public class MainActivity extends AppCompatActivity
             return fragment;
         }
 
-        public PlaceholderFragment() {
-        }
+        public PlaceholderFragment() { }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -162,5 +193,4 @@ public class MainActivity extends AppCompatActivity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
-
 }
