@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity
 
     private EditText loginEmail;
     private EditText loginPassword;
+    private ImageView mLogo;
 
     private String emailText;
     private String passwordText;
@@ -56,6 +58,15 @@ public class MainActivity extends AppCompatActivity
 
         loginEmail = (EditText) findViewById(R.id.login_email);
         loginPassword = (EditText) findViewById(R.id.login_password);
+
+        mLogo = (ImageView) findViewById(R.id.logo);
+        mLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Note: THIS IS ONLY FOR DEBUG PURPOSES
+
+            }
+        });
 
         /* mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
