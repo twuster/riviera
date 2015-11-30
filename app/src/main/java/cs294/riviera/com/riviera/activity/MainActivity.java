@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import cs294.riviera.com.riviera.NavigationDrawerFragment;
+import cs294.riviera.com.riviera.ParseWrapper;
 import cs294.riviera.com.riviera.R;
 
 public class MainActivity extends AppCompatActivity
@@ -47,11 +48,15 @@ public class MainActivity extends AppCompatActivity
     private String emailText;
     private String passwordText;
 
+    private ParseWrapper mParseWrapper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mParseWrapper = new ParseWrapper(this);
 
         loginButton = (Button) findViewById(R.id.login_button);
         signUpButton = (Button) findViewById(R.id.sign_up_button);
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 // Note: THIS IS ONLY FOR DEBUG PURPOSES
-
+//                mParseWrapper.getEventsForRecruiter()
             }
         });
 
