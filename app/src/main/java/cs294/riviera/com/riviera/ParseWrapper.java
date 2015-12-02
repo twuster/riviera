@@ -146,29 +146,42 @@ public class ParseWrapper {
         }
     }
 
-    public ParseObject getStudentData(String studentDataId) {
-//        ParseQuery<ParseObject> query = ParseQuery.getQuery("StudentData");
-//        try {
-//            query.whereEqualTo("objectId", studentDataId);
-//            query.include("recruiterData");
-//            query.include("recruiterData.events");
-////            query.include("recruiterData.events.name");
-////            query.include("recruiterData.events.createdAt");
-//            List<ParseObject> recruiters = query.find();
-//            if (recruiters.size() > 0) {
-//                ParseObject recruiter = recruiters.get(0);
-//                ParseObject recruiterData = (ParseObject) recruiter.get("recruiterData");
-//                ArrayList events = (ArrayList) recruiterData.get("events");
-//                return events;
-//            } else {
-//                Toast.makeText(mContext, "No events found", Toast.LENGTH_SHORT).show();
-//                return null;
-//            }
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-        return null;
+    public ParseObject getStudentDataWithId(String studentDataId) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("StudentData");
+        try {
+            query.whereEqualTo("objectId", studentDataId);
+            query.include("resume");
+            List<ParseObject> students = query.find();
+            if (students.size() > 0) {
+                ParseObject studentData = students.get(0);
+                return studentData;
+            } else {
+                Toast.makeText(mContext, "No student found", Toast.LENGTH_SHORT).show();
+                return null;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public ParseObject getStudentDataWithUrl(String studentDataUrl) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("StudentData");
+        try {
+            query.whereEqualTo("url", studentDataUrl);
+            query.include("resume");
+            List<ParseObject> students = query.find();
+            if (students.size() > 0) {
+                ParseObject studentData = students.get(0);
+                return studentData;
+            } else {
+                Toast.makeText(mContext, "No student found", Toast.LENGTH_SHORT).show();
+                return null;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public ArrayList<ParseObject> getEventsForRecruiter(String recruiterId) {
