@@ -9,11 +9,14 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import cs294.riviera.com.riviera.ParseWrapper;
@@ -38,13 +41,25 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        mParseWrapper = new ParseWrapper(this);
 
         recruiterEmail = (EditText) findViewById(R.id.sign_up_email);
         recruiterCompany = (EditText) findViewById(R.id.company);
         password = (EditText) findViewById(R.id.sign_up_password);
         confirmedPassword = (EditText) findViewById(R.id.sign_up_confirm_password);
 
-        mParseWrapper = new ParseWrapper(this);
+        confirmedPassword
+                .setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView, int id,
+                                                  KeyEvent keyEvent) {
+                        if (id == R.id.confirm_password || id == EditorInfo.IME_ACTION_DONE) {
+                            handleSignUp(findViewById(android.R.id.content));
+                            return true;
+                        }
+                        return false;
+                    }
+                });
     }
 
     @Override
@@ -80,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
         if (!cancel) {
             String recruiterId = mParseWrapper.saveRecruiter(emailText, passwordText, companyText);
             if (recruiterId != null) {
-                displayOk("Success!");
+                displayOk();
             }
         } else {
             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
@@ -123,7 +138,7 @@ public class SignUpActivity extends AppCompatActivity {
         return cancel;
     }
 
-    public void displayOk(String message) {
+    public void displayOk() {
         hideSoftKeyboard(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Thanks for signing up!")

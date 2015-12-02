@@ -146,7 +146,29 @@ public class ParseWrapper {
         }
     }
 
-    public ParseObject getStudentData
+    public ParseObject getStudentData(String studentDataId) {
+//        ParseQuery<ParseObject> query = ParseQuery.getQuery("StudentData");
+//        try {
+//            query.whereEqualTo("objectId", studentDataId);
+//            query.include("recruiterData");
+//            query.include("recruiterData.events");
+////            query.include("recruiterData.events.name");
+////            query.include("recruiterData.events.createdAt");
+//            List<ParseObject> recruiters = query.find();
+//            if (recruiters.size() > 0) {
+//                ParseObject recruiter = recruiters.get(0);
+//                ParseObject recruiterData = (ParseObject) recruiter.get("recruiterData");
+//                ArrayList events = (ArrayList) recruiterData.get("events");
+//                return events;
+//            } else {
+//                Toast.makeText(mContext, "No events found", Toast.LENGTH_SHORT).show();
+//                return null;
+//            }
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+    }
 
     public ArrayList<ParseObject> getEventsForRecruiter(String recruiterId) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
