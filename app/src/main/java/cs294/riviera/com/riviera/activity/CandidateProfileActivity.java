@@ -123,7 +123,6 @@ public class CandidateProfileActivity extends AppCompatActivity {
 
     public void saveSuccessful(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, NamesListActivity.class);
-        startActivity(intent);
+        finish();
     }
 }
