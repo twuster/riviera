@@ -23,7 +23,7 @@
     <EditText
         style="@style/TextEntry"
         android:layout_marginTop="150dp"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:hint="@string/login_email"
         android:id="@+id/sign_up_email"
         android:layout_centerHorizontal="true" />

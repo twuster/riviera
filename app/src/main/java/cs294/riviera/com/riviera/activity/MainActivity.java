@@ -2,6 +2,7 @@ package cs294.riviera.com.riviera.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import cs294.riviera.com.riviera.NavigationDrawerFragment;
 import cs294.riviera.com.riviera.ParseWrapper;
 import cs294.riviera.com.riviera.R;
+import cs294.riviera.com.riviera.SharedPreferenceKeys;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -103,8 +105,17 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void handleLoginButton(View view) {
-        Intent intent = new Intent(this, EventsActivity.class);
-        startActivity(intent);
+        String recruiterId = mParseWrapper.logInRecruiter(loginEmail.getText().toString(), loginPassword.getText().toString());
+
+        if (recruiterId != null) {
+            SharedPreferences prefs = this.getSharedPreferences(SharedPreferenceKeys.USER_PREFS_KEY, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(SharedPreferenceKeys.CURRENT_RECRUITER_ID_KEY, recruiterId);
+            editor.apply();
+
+            Intent intent = new Intent(this, EventsActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void handleSignUpButton(View view) {

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,7 +16,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cs294.riviera.com.riviera.ParseWrapper;
 import cs294.riviera.com.riviera.R;
+import cs294.riviera.com.riviera.SharedPreferenceKeys;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -29,6 +32,8 @@ public class SignUpActivity extends AppCompatActivity {
     private String passwordText;
     private String confirmedPasswordText;
 
+    private ParseWrapper mParseWrapper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,8 @@ public class SignUpActivity extends AppCompatActivity {
         recruiterCompany = (EditText) findViewById(R.id.company);
         password = (EditText) findViewById(R.id.sign_up_password);
         confirmedPassword = (EditText) findViewById(R.id.sign_up_confirm_password);
+
+        mParseWrapper = new ParseWrapper(this);
     }
 
     @Override
@@ -71,7 +78,10 @@ public class SignUpActivity extends AppCompatActivity {
         Boolean cancel = signUpCheck();
 
         if (!cancel) {
-            displayOk("Success!");
+            String recruiterId = mParseWrapper.saveRecruiter(emailText, passwordText, companyText);
+            if (recruiterId != null) {
+                displayOk("Success!");
+            }
         } else {
             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
         }
