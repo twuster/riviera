@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,7 +47,7 @@ public class NamesListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayList<ParseObject> candidates = mParseWrapper.getCandidatesForEvent(mEventId);
+        ArrayList<ParseObject> candidates = mParseWrapper.getStudentsForEvent(mEventId);
         mNamesListAdapter = new NamesListAdapter(this, 0, candidates.toArray());
         mNamesList.setAdapter(mNamesListAdapter);
         mNamesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -146,6 +146,8 @@ public class ParseWrapper {
         }
     }
 
+    public ParseObject getStudentData
+
     public ArrayList<ParseObject> getEventsForRecruiter(String recruiterId) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
         try {
@@ -170,7 +172,7 @@ public class ParseWrapper {
         }
     }
 
-    public ArrayList<ParseObject> getCandidatesForEvent(String eventId) {
+    public ArrayList<ParseObject> getStudentsForEvent(String eventId) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Event");
         try {
             query.whereEqualTo("objectId", eventId);
