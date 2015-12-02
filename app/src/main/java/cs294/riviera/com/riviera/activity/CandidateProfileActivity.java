@@ -85,6 +85,11 @@ public class CandidateProfileActivity extends AppCompatActivity {
     }
 
     public void handleSaveCandidate(View view) {
+
+        String jobTypeString;
+        String ratingString;
+        String notesText;
+        
         boolean mobile = mMobileCheckbox.isChecked();
         boolean frontend = mFrontendCheckbox.isChecked();
         boolean backend = mBackendCheckbox.isChecked();
@@ -99,10 +104,19 @@ public class CandidateProfileActivity extends AppCompatActivity {
         RadioButton jobType = (RadioButton) findViewById(mjobType.getCheckedRadioButtonId());
         RadioButton rating = (RadioButton) findViewById(mRating.getCheckedRadioButtonId());
 
-        String jobTypeString = jobType.getText().toString();
-        String ratingString = rating.getText().toString();
+        if (jobType != null) {
+            jobTypeString = jobType.getText().toString();
+        } else {
+            jobTypeString = "";
+        }
 
-        String notesText = mNotes.getText().toString();
+        if (rating != null) {
+            ratingString = rating.getText().toString();
+        } else {
+            ratingString = "";
+        }
+
+        notesText = mNotes.getText().toString();
 
         saveSuccessful("Candidate Saved!");
     }
