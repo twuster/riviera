@@ -106,9 +106,16 @@
     <style name="WeaknessesCheckbox" parent="InterestsCheckbox">
         <item name="android:layout_marginLeft">25dp</item>
         <item name="android:layout_marginRight">25dp</item>
+        <item name="android:layout_centerHorizontal">false</item>
     </style>
 
     <style name="RatingRadio" parent="AppTheme">
-
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginRight">25dp</item>
+        <item name="android:button">@drawable/checkbox_button_bg</item>
     </style>
 </resources>
