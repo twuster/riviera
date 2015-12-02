@@ -168,6 +168,7 @@ public class ParseWrapper {
 //            e.printStackTrace();
 //            return null;
 //        }
+        return null;
     }
 
     public ArrayList<ParseObject> getEventsForRecruiter(String recruiterId) {
