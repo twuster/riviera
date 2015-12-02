@@ -1,20 +1,314 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="cs294.riviera.com.riviera.activity.CandidateProfileActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/candidate_scroll_view">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="cs294.riviera.com.riviera.activity.CandidateProfileActivity">
+
+        <TextView
+            android:layout_marginTop="@dimen/bottom_margin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/candidate_summary"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:fontFamily="sans-serif-light" />
+
+        <View
+            style="@style/CandidateInfoDivider"
+            android:id="@+id/line1"
+            android:layout_below="@id/candidate_summary" />
+
+        <TextView
+            style="@style/CandidateInfoTitle"
+            android:text="@string/resume_title"
+            android:id="@+id/resume_title"
+            android:layout_below="@id/line1" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/resume_photo"
+            android:layout_below="@+id/resume_title"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/resume" />
+
+        <View
+            style="@style/CandidateInfoDivider"
+            android:id="@+id/line2"
+            android:layout_below="@id/resume_photo" />
+
+        <TextView
+            style="@style/CandidateInfoTitle"
+            android:text="@string/jobtype_title"
+            android:id="@+id/jobtype_title"
+            android:layout_below="@id/line2" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/side_margin"
+            android:layout_marginRight="@dimen/side_margin"
+            android:background="@drawable/blue_outline"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/jobtype_radio"
+            android:layout_below="@id/jobtype_title">
+
+            <RadioButton
+                style="@style/JobTypeRadio"
+                android:id="@+id/internship_radio"
+                android:text="@string/internship_radio" />
+
+            <RadioButton
+                style="@style/JobTypeRadio"
+                android:id="@+id/fulltime_radio"
+                android:text="@string/full_time_radio" />
+        </RadioGroup>
+
+        <View
+            style="@style/CandidateInfoDivider"
+            android:id="@+id/line3"
+            android:layout_below="@id/jobtype_radio" />
+
+        <TextView
+            style="@style/CandidateInfoTitle"
+            android:text="@string/interests_title"
+            android:id="@+id/interests_title"
+            android:layout_below="@id/line3" />
+
+        <CheckBox
+            style="@style/InterestsCheckbox"
+            android:text="@string/mobile_checkbox"
+            android:id="@+id/mobile_checkbox"
+            android:layout_below="@id/interests_title" />
+
+        <CheckBox
+            style="@style/InterestsCheckbox"
+            android:text="@string/frontend_checkbox"
+            android:id="@+id/frontend_checkbox"
+            android:layout_alignLeft="@id/mobile_checkbox"
+            android:layout_below="@id/mobile_checkbox" />
+
+        <CheckBox
+            style="@style/InterestsCheckbox"
+            android:text="@string/backend_checkbox"
+            android:id="@+id/backend_checkbox"
+            android:layout_alignLeft="@id/mobile_checkbox"
+            android:layout_below="@id/frontend_checkbox" />
+
+        <CheckBox
+            style="@style/InterestsCheckbox"
+            android:text="@string/BizOps_checkbox"
+            android:id="@+id/bizops_checkbox"
+            android:layout_alignLeft="@id/mobile_checkbox"
+            android:layout_below="@id/backend_checkbox" />
+
+        <CheckBox
+            style="@style/InterestsCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pm_checkbox"
+            android:id="@+id/pm_checkbox"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-light"
+            android:button="@drawable/checkbox_button_bg"
+            android:layout_alignLeft="@id/mobile_checkbox"
+            android:layout_below="@id/bizops_checkbox"
+            android:layout_centerHorizontal="true" />
+
+        <View
+            style="@style/CandidateInfoDivider"
+            android:id="@+id/line4"
+            android:layout_below="@id/pm_checkbox" />
+
+        <TextView
+            style="@style/CandidateInfoTitle"
+            android:text="@string/weakeness_title"
+            android:id="@+id/weaknesses_title"
+            android:layout_below="@id/line4" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/weaknesses_title"
+            android:gravity="center"
+            android:id="@+id/weaknesses_section"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin" >
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gpa_checkbox"
+                android:id="@+id/gpa_checkbox"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exp_checkbox"
+                android:id="@+id/exp_checkbox"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/gpa_checkbox"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/culture_checkbox"
+                android:id="@+id/culture_checkbox"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/exp_checkbox" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mission_checkbox"
+                android:id="@+id/mission_checkbox"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/culture_checkbox" />
+        </RelativeLayout>
+
+        <View
+            style="@style/CandidateInfoDivider"
+            android:id="@+id/line5"
+            android:layout_below="@id/weaknesses_section" />
+
+        <TextView
+            style="@style/CandidateInfoTitle"
+            android:text="@string/rating_title"
+            android:id="@+id/rating_title"
+            android:layout_below="@id/line5" />
 
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="John Doe\nEECS\n May 2016"
-        android:id="@+id/candidate_summary"
-        android:gravity="center"
-        android:textSize="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-light"/>
-</RelativeLayout>
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@id/rating_title"
+            android:id="@+id/rating_radio"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_1"
+                android:id="@+id/rating_1"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_2"
+                android:id="@+id/rating_2"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/rating_1"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_3"
+                android:id="@+id/rating_3"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/rating_2" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_4"
+                android:id="@+id/rating_4"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/rating_3" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_5"
+                android:id="@+id/rating_5"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:button="@drawable/checkbox_button_bg"
+                android:layout_toRightOf="@id/rating_4" />
+        </RadioGroup>
+
+
+        <View
+            style="@style/CandidateInfoDivider"
+            android:id="@+id/line6"
+            android:layout_below="@id/rating_radio" />
+
+        <TextView
+            style="@style/CandidateInfoTitle"
+            android:text="@string/notes_title"
+            android:id="@+id/notes_title"
+            android:layout_below="@id/line6" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:inputType="textMultiLine"
+            android:textSize="20dp"
+            android:gravity="top|left"
+            android:id="@+id/notes"
+            android:layout_below="@+id/notes_title"
+            android:background="@drawable/multiline_bg"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+        <Button
+            style="@style/ButtonTheme"
+            android:text="@string/save_button"
+            android:id="@+id/save_button"
+            android:layout_alignParentBottom="true"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:onClick="handleSaveCandidate"
+            android:layout_below="@id/notes" />
+    </RelativeLayout>
+</ScrollView>

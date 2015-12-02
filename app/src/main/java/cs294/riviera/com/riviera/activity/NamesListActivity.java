@@ -1,5 +1,6 @@
 package cs294.riviera.com.riviera.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +30,8 @@ public class NamesListActivity extends AppCompatActivity {
         eventsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), CandidateProfileActivity.class);
+                startActivity(intent);
             }
         });
         eventsList.setAdapter(eventsListAdapter);

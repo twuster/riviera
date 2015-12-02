@@ -10,12 +10,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,15 +76,18 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        /* mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
-
-        Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
-                        (DrawerLayout) findViewById(R.id.drawer_layout)); */
+        loginPassword
+                .setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView, int id,
+                                                  KeyEvent keyEvent) {
+                        if (id == R.id.login || id == EditorInfo.IME_ACTION_DONE) {
+                            handleLoginButton(findViewById(android.R.id.content));
+                            return true;
+                        }
+                        return false;
+                    }
+                });
 
 
         // NFC Code

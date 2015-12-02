@@ -59,4 +59,56 @@
         <item name="android:contentDescription">image of background</item>
     </style>
 
+    <!--Candidate Profile-->
+    <style name="CandidateInfoDivider" parent="AppTheme">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/grey</item>
+        <item name="android:layout_marginBottom">@dimen/bottom_margin</item>
+        <item name="android:layout_marginTop">@dimen/bottom_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="CandidateInfoTitle" parent="AppTheme">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="JobTypeRadio" parent="AppTheme">
+        <item name="android:background">@drawable/toggle_widget_background</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="InterestsCheckbox" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:button">@drawable/checkbox_button_bg</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="WeaknessesCheckbox" parent="InterestsCheckbox">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginRight">25dp</item>
+    </style>
+
+    <style name="RatingRadio" parent="AppTheme">
+
+    </style>
 </resources>

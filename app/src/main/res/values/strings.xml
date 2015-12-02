@@ -25,4 +25,30 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+
+    <!--Candidate Profile-->
+    <string name="resume_title">Resume</string>
+    <string name="jobtype_title">Job Type</string>
+    <string name="internship_radio">Internship</string>
+    <string name="full_time_radio">Full-Time</string>
+    <string name="interests_title">Interests</string>
+    <string name="mobile_checkbox">Mobile</string>
+    <string name="frontend_checkbox">Frontend</string>
+    <string name="backend_checkbox">Backend</string>
+    <string name="BizOps_checkbox">BizOps</string>
+    <string name="weakeness_title">Weaknesses</string>
+    <string name="pm_checkbox">PM</string>
+    <string name="gpa_checkbox">GPA</string>
+    <string name="exp_checkbox">Exp</string>
+    <string name="culture_checkbox">Culture</string>
+    <string name="mission_checkbox">Mission</string>
+    <string name="rating_title">Rating</string>
+    <string name="rating_1">1</string>
+    <string name="rating_2">2</string>
+    <string name="rating_3">3</string>
+    <string name="rating_4">4</string>
+    <string name="rating_5">5</string>
+    <string name="notes_title">Notes</string>
+    <string name="save_button">Save</string>
+
 </resources>

@@ -46,7 +46,8 @@
         android:inputType="textPassword"
         android:hint="@string/confirm_password"
         android:id="@+id/sign_up_confirm_password"
-        android:layout_below="@id/sign_up_password" />
+        android:layout_below="@id/sign_up_password"
+        android:imeActionId="@+id/confirm_password" />
 
     <Button
         style="@style/ButtonTheme"
