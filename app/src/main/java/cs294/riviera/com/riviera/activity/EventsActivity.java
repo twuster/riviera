@@ -1,7 +1,5 @@
 package cs294.riviera.com.riviera.activity;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -14,7 +12,7 @@ import android.view.View;
 
 import cs294.riviera.com.riviera.R;
 import cs294.riviera.com.riviera.ViewPagerAdapter;
-import cs294.riviera.com.riviera.fragments.EditProfileFragment;
+import cs294.riviera.com.riviera.fragments.ProfileFragment;
 import cs294.riviera.com.riviera.fragments.EventsListFragment;
 
 public class EventsActivity extends AppCompatActivity {
@@ -66,13 +64,13 @@ public class EventsActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.events_blue);
-        tabLayout.getTabAt(1).setIcon(R.drawable.edit_blue);
+        tabLayout.getTabAt(1).setIcon(R.drawable.profile_blue);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new EventsListFragment(), "Events List");
-        adapter.addFragment(new EditProfileFragment(), "Edit Profile");
+        adapter.addFragment(new ProfileFragment(), "Edit Profile");
         viewPager.setAdapter(adapter);
     }
 
