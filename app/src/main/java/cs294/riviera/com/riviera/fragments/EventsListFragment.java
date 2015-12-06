@@ -23,7 +23,9 @@ import java.util.List;
 import cs294.riviera.com.riviera.ParseWrapper;
 import cs294.riviera.com.riviera.R;
 import cs294.riviera.com.riviera.SharedPreferenceKeys;
+import cs294.riviera.com.riviera.activity.AddEventActivity;
 import cs294.riviera.com.riviera.activity.NamesListActivity;
+import cs294.riviera.com.riviera.activity.SignUpActivity;
 
 public class EventsListFragment extends Fragment{
 
@@ -131,6 +133,8 @@ public class EventsListFragment extends Fragment{
         String date;
         String name;
     }
+
+
 
 //    List<Event> getDataForListView() {
 //        List<Event> events = new ArrayList<Event>();

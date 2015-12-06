@@ -50,5 +50,8 @@
     <string name="rating_5">5</string>
     <string name="notes_title">Notes</string>
     <string name="save_button">Save</string>
+    <string name="title_activity_add_event">AddEvent</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
