@@ -16,7 +16,7 @@
     <application
         android:name=".RivieraApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/riviera_logo"
         android:label="@string/app_name"
         android:theme="@style/MaterialTheme" >
         <activity

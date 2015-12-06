@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+
+    <TextView
+        android:layout_marginTop="@dimen/bottom_margin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Company"
+        android:id="@+id/company_title"
+        android:textColor="@color/blue"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:fontFamily="sans-serif-light" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Google"
+        android:id="@+id/company_name"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:layout_below="@id/company_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:fontFamily="sans-serif-light" />
+
+    <View
+        style="@style/CandidateInfoDivider"
+        android:id="@+id/line"
+        android:layout_below="@id/company_name" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/riviera_logo"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
