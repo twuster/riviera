@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+    <ImageButton
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleAddEvent"
+        android:background="@drawable/add_event_button_bg"
+        android:src="@drawable/white_add"
+        android:fontFamily="sans-serif-light"
+        android:textAllCaps="false"
+        android:textSize="25dp"
+        android:id="@+id/add_event_button"
+        android:paddingLeft="@dimen/list_side_margin"
+        android:paddingRight="@dimen/list_side_margin"
+        android:paddingTop="@dimen/list_top_margin"
+        android:paddingBottom="@dimen/list_bottom_margin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/add_event_button"
+        android:text="Add Event"
+        android:paddingBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:textSize="25dp"/>
+
+    <ListView
+        android:id="@+id/events_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_event_button">
+    </ListView>
+</RelativeLayout>

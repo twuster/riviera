@@ -2,6 +2,7 @@ package cs294.riviera.com.riviera.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import cs294.riviera.com.riviera.R;
 import cs294.riviera.com.riviera.ViewPagerAdapter;
@@ -72,5 +74,10 @@ public class EventsActivity extends AppCompatActivity {
         adapter.addFragment(new EventsListFragment(), "Events List");
         adapter.addFragment(new EditProfileFragment(), "Edit Profile");
         viewPager.setAdapter(adapter);
+    }
+
+    public void handleAddEvent(View view) {
+        Intent intent = new Intent(this, AddEventActivity.class);
+        startActivity(intent);
     }
 }
